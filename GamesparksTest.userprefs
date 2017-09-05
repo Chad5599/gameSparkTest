@@ -4,7 +4,8 @@
     <Files>
       <File FileName="Assets/Scripts/GameSparksManager.cs" Line="6" Column="2" />
       <File FileName="Assets/Scripts/Registration/RegisterPlayer.cs" Line="59" Column="4" />
-      <File FileName="Assets/Scripts/playerData/SavePlayer.cs" Line="20" Column="3" />
+      <File FileName="Assets/Scripts/playerData/SavePlayer.cs" Line="23" Column="3" />
+      <File FileName="Assets/Scripts/playerData/MovePlayer.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
