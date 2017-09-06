@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using GameSparks.Api.Requests;
+
 public class RegisterPlayer : MonoBehaviour
 {
 
@@ -14,7 +16,7 @@ public class RegisterPlayer : MonoBehaviour
 
 	public void RegisterPlayerButton ()
 	{
-		new GameSparks.Api.Requests.RegistrationRequest ()
+		new RegistrationRequest ()
 			.SetDisplayName (displayNameRegister.text)
 			.SetPassword (passwordRegister.text)
 			.SetUserName (userNameRegister.text)
@@ -33,7 +35,7 @@ public class RegisterPlayer : MonoBehaviour
 
 	public void AuthorizedPlayerButton ()
 	{
-		new GameSparks.Api.Requests.AuthenticationRequest ().SetUserName (userNameAuthorise.text).SetPassword (passwordAuthorise.text).Send ((response) => {
+		new AuthenticationRequest ().SetUserName (userNameAuthorise.text).SetPassword (passwordAuthorise.text).Send ((response) => {
 			if (!response.HasErrors) 
 			{
 				Debug.Log ("Player Authenticated...\n");
