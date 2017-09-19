@@ -52,8 +52,10 @@ public class RegisterPlayer : MonoBehaviour
 
 	public void GameSceneButton()
 	{
-		if (authoriseFlag) {
-			Application.LoadLevel ("MainGameScene");
+        if (authoriseFlag) {
+			//Application.LoadLevel ("multiPlayerScene");
+            //Application.LoadLevel ("MainGameScene");
+            Application.LoadLevel ("AppPurchase");
 		}
 		else 
 		{

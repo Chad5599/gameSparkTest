@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using GameSparks.Api.Requests;
+using GameSparks.Core;
 
 public class SavePlayer : MonoBehaviour {
 
@@ -24,16 +25,16 @@ public class SavePlayer : MonoBehaviour {
 		GameSparks.Api.Messages.AchievementEarnedMessage.Listener += AchievementMessageHandler;
 	
 	
-			GameSparks.Api.Messages.NewHighScoreMessage.Listener += HighScoreMessageHandler;
+		GameSparks.Api.Messages.NewHighScoreMessage.Listener += HighScoreMessageHandler;
 	}
 
 	void AchievementMessageHandler(GameSparks.Api.Messages.AchievementEarnedMessage _message) {
-		Debug.Log("AWARDED ACHIEVEMENT \n " + _message.AchievementName);
+	//	Debug.Log("AWARDED ACHIEVEMENT \n " + _message.AchievementName);
 	}
 
 		void HighScoreMessageHandler(GameSparks.Api.Messages.NewHighScoreMessage _message) 
 	{
-			Debug.Log("NEW HIGH SCORE \n " + _message.LeaderboardName);
+	//		Debug.Log("NEW HIGH SCORE \n " + _message.LeaderboardName);
 
 	}
 
@@ -43,7 +44,7 @@ public class SavePlayer : MonoBehaviour {
 
 		new LeaderboardDataRequest().SetLeaderboardShortCode("SCORE_LEADERBOARD").SetEntryCount(100).Send((response) => {
 			if (!response.HasErrors) {
-				Debug.Log("Found Leaderboard Data...");
+			//	Debug.Log("Found Leaderboard Data...");
 				foreach(GameSparks.Api.Responses.LeaderboardDataResponse._LeaderboardData entry in response.Data) {
 					int rank = (int) entry.Rank;
 					string userID = entry.UserId;
@@ -71,9 +72,9 @@ public class SavePlayer : MonoBehaviour {
 			new LogEventRequest ().SetEventKey ("Buy_Virtual_Gem")
 				.Send ((response) => {
 					if (!response.HasErrors) {
-						Debug.Log ("gem added");
+			//			Debug.Log ("gem added");
 					} else {
-						Debug.Log ("Error gem added");
+			//			Debug.Log ("Error gem added");
 					}
 				});
 
@@ -88,7 +89,7 @@ public class SavePlayer : MonoBehaviour {
 					if (!response.HasErrors) {
 						//	Debug.Log("Player Saved To GameSparks...");
 					}  else {
-						Debug.Log("Error Saving Player Data...");
+			//			Debug.Log("Error Saving Player Data...");
 					}
 				} );
 
@@ -98,7 +99,7 @@ public class SavePlayer : MonoBehaviour {
 		}
 		else 
 		{
-			Debug.Log("not enough gems to buy gold");
+		//	Debug.Log("not enough gems to buy gold");
 		}
 
 	}
@@ -114,9 +115,9 @@ public class SavePlayer : MonoBehaviour {
 				.SetEventAttribute ("GEM_CURR", 0)
 			.Send ((response) => {
 				if (!response.HasErrors) {
-					Debug.Log ("elixire subtracted");
+				//	Debug.Log ("elixire subtracted");
 				} else {
-					Debug.Log ("error elixire subtracting");
+				//	Debug.Log ("error elixire subtracting");
 				}
 			});
 			
@@ -125,7 +126,7 @@ public class SavePlayer : MonoBehaviour {
 		} 
 		else 
 		{
-			Debug.Log("not enough Elixire to buy gold");	
+		//	Debug.Log("not enough Elixire to buy gold");	
 		}
 	}
 
@@ -137,9 +138,9 @@ public class SavePlayer : MonoBehaviour {
 				.SetEventAttribute ("GEM_CURR", gemSubValue)
 				.Send ((response) => {
 				if (!response.HasErrors) {
-					Debug.Log ("gem subtracted");
+				//	Debug.Log ("gem subtracted");
 				} else {
-					Debug.Log ("Error gem subtracted");
+				//	Debug.Log ("Error gem subtracted");
 				}
 			});
 
@@ -148,7 +149,7 @@ public class SavePlayer : MonoBehaviour {
 		}
 		else 
 		{
-			Debug.Log("not enough gems to buy gold");
+		//	Debug.Log("not enough gems to buy gold");
 		}
 
 	}
@@ -184,18 +185,18 @@ public class SavePlayer : MonoBehaviour {
 						if (!response.HasErrors) {
 						//	Debug.Log("currency added");
 						}  else {
-							Debug.Log("Error adding gem");
+						//	Debug.Log("Error adding gem");
 						}
 					} );
 
 				new LogEventRequest().SetEventKey("Award_Achievement").Send((response) => {
 					if (!response.HasErrors) {
-						Debug.Log("Achievement done...");
+					//	Debug.Log("Achievement done...");
 
 					} 
 					else 
 					{
-						Debug.Log("Error awarding achievement...");
+					//	Debug.Log("Error awarding achievement...");
 					}
 				});
 
@@ -215,7 +216,7 @@ public class SavePlayer : MonoBehaviour {
 						if (!response.HasErrors) {
 						//	Debug.Log("currency added");
 						}  else {
-							Debug.Log("Error adding elixire");
+						//	Debug.Log("Error adding elixire");
 						}
 					} );
 
@@ -230,7 +231,7 @@ public class SavePlayer : MonoBehaviour {
 					if (!response.HasErrors) {
 					//	Debug.Log("Player Saved To GameSparks...");
 					}  else {
-						Debug.Log("Error Saving Player Data...");
+					//	Debug.Log("Error Saving Player Data...");
 					}
 				} );
 
@@ -238,19 +239,59 @@ public class SavePlayer : MonoBehaviour {
 				if (!response.HasErrors) {
 				//	Debug.Log("Score Posted Successfully...");
 				} else {
-					Debug.Log("Error Posting Score...");
+				//	Debug.Log("Error Posting Score...");
 				}
 			});
 				
 		}
 	}
+	      
+	public void ShowVirtualGoodButton()
+	{
+	new GameSparks.Api.Requests.AccountDetailsRequest().Send((response) => {
+		if (!response.HasErrors) {
+			Debug.Log("Account Details Found...");
+			string playerName = response.DisplayName; // we can get the display name
+			int cashAvailable = (int) response.Currency1;
+			int goldCoinsAvailable = (int) response.VirtualGoods.GetNumber("GOLD_COIN");
+				virtualGoods.text = goldCoinsAvailable.ToString();
+		} else {
+		//	Debug.Log("Error Retrieving Account Details...");
+		}
+	});
+	}
 
+	public void BuyVirtualGoods()
+	{
+		new BuyVirtualGoodsRequest().SetCurrencyShortCode("GEM").SetQuantity(1).SetShortCode("GOLD_COIN").Send((response) => {
+			if (!response.HasErrors) {
+			//	Debug.Log("Virtual Goods Bought Successfully...");
+			} else {
+			//	Debug.Log("Error Buying Virtual Goods...");
+			}
+		});
+		
+		Load_Data_Currency();
+	}
+	public void SpendVirtualGoods()
+	{
+		new ConsumeVirtualGoodRequest().SetQuantity(1).SetShortCode("GOLD_COIN").Send((response) => {
+			if (!response.HasErrors) {
+			//	Debug.Log("Virtual Goods Consumed Successfully...");
+			} else {
+			//	Debug.Log("Error Consuming Virtual Goods...");
+			}
+		});
+		
+		Load_Data_Currency();
+
+	}
 
 	public void Load_Data_Currency()
 	{
 		new LogEventRequest().SetEventKey("LOAD_PLAYER").Send((response) => {
 			if (!response.HasErrors) {
-				Debug.Log("Received Player Data From GameSparks...");
+			//	Debug.Log("Received Player Data From GameSparks...");
 				var data = response.ScriptData.GetGSData("player_Data");
 
 				userIDGloabl = data.GetString("playerID");
@@ -266,14 +307,43 @@ public class SavePlayer : MonoBehaviour {
 			} 
 			else 
 			{
-				Debug.Log("Error Loading Player Data...");
+			//	Debug.Log("Error Loading Player Data...");
 			}
 		});
+
+		new LogEventRequest().SetEventKey("Get_Named_Curr").Send((response) => {
+			if (!response.HasErrors) {
+			//	Debug.Log("Got the currency details");
+				GSData balanceData = response.ScriptData.GetGSData("balance");
+
+				int elixireBalance = (int)balanceData.GetInt("elixireQuantity");
+				int gemBalance = (int)balanceData.GetInt("gemQuantity");
+
+				elixireCurr = elixireBalance;
+				gemCurr     = gemBalance;
+
+				elixire.text = elixireCurr.ToString();
+				gem.text     = gemCurr.ToString();
+
+			//	Debug.Log("The responce : "+balanceData.JSON);
+			//	Debug.Log("The elixire are : "+elixireBalance);
+			//	Debug.Log("The gem are : "+gemBalance);
+
+			} 
+			else 
+			{
+				Debug.Log("Error getting named currency balance...");
+			}
+		});
+
+
+
 
 		new AccountDetailsRequest().Send((response) =>
 			{
 				if (!response.HasErrors) 
 				{
+					//to get built in currencies and other details
 					//Debug.Log("I have "+(response.Currency1 != null ? (int)response.Currency1 : 0) +" coins");
 					//Debug.Log("I have "+(response.Currency2 != null ? (int)response.Currency2 : 0) +" coins");
 
@@ -281,59 +351,28 @@ public class SavePlayer : MonoBehaviour {
 					//	GSData reservedCurrency1 = response.ReservedCurrency1; 
 
 					//					Debug.Log("The currency is :"+reservedCurrency1);
-					elixireCurr = (int)response.Currency1;
-					gemCurr     = (int)response.Currency2;
 
-					elixire.text = elixireCurr.ToString();
-					gem.text     = gemCurr.ToString();
+					//elixireCurr = (int)response.Currency1;
+					//gemCurr     = (int)response.Currency2;
+
+					//elixire.text = elixireCurr.ToString();
+					//gem.text     = gemCurr.ToString();
 				}
 				else 
 				{
-					Debug.Log("Error Getting Currencies...");
+				//	Debug.Log("Error Getting Currencies...");
 				}
 			});
 	}
-	      
-	public void ShowVirtualGoodButton()
-	{
-	new GameSparks.Api.Requests.AccountDetailsRequest().Send((response) => {
-		if (!response.HasErrors) {
-			Debug.Log("Account Details Found...");
-			string playerName = response.DisplayName; // we can get the display name
-			int cashAvailable = (int) response.Currency1;
-			int goldCoinsAvailable = (int) response.VirtualGoods.GetNumber("GOLD_COIN");
-				virtualGoods.text = goldCoinsAvailable.ToString();
-		} else {
-			Debug.Log("Error Retrieving Account Details...");
-		}
-	});
-	}
 
-	public void BuyVirtualGoods()
+
+	public void GameSceneButton()
 	{
-		new BuyVirtualGoodsRequest().SetCurrencyShortCode("GEM").SetQuantity(1).SetShortCode("GOLD_COIN").Send((response) => {
-			if (!response.HasErrors) {
-				Debug.Log("Virtual Goods Bought Successfully...");
-			} else {
-				Debug.Log("Error Buying Virtual Goods...");
-			}
-		});
 		
-		Load_Data_Currency();
-	}
-	public void SpendVirtualGoods()
-	{
-		new ConsumeVirtualGoodRequest().SetQuantity(1).SetShortCode("GOLD_COIN").Send((response) => {
-			if (!response.HasErrors) {
-				Debug.Log("Virtual Goods Consumed Successfully...");
-			} else {
-				Debug.Log("Error Consuming Virtual Goods...");
-			}
-		});
-		
-		Load_Data_Currency();
+			Application.LoadLevel ("multiPlayerScene");
+
+		//	Debug.Log ("Next Scene : Multiplayer");
 
 	}
-
 
 }
