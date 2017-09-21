@@ -50,7 +50,7 @@ public class SavePlayer : MonoBehaviour {
 					string userID = entry.UserId;
 					string playerName = entry.UserName;
 					string scoreGet = entry.JSONData["SCORE"].ToString();
-					//Debug.Log("Rank:" + rank + " Name:" + playerName + " \n Score:" + score);
+					Debug.Log("Rank:" + rank + " Name:" + playerName + " \n Score:" + score);
 
 					if(userID == userIDGloabl) 
 					{

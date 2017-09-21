@@ -8,16 +8,22 @@ using UnityEngine.Purchasing.Security;
 // Placing the Purchaser class in the CompleteProject namespace allows it to interact with ScoreManager,
 // one of the existing Survival Shooter scripts.
 // Deriving the Purchaser class from IStoreListener enables it to receive messages from Unity Purchasing.
+using UnityEngine.UI;
 
 
 public class Purchaser : MonoBehaviour, IStoreListener
 {
 	public static Purchaser purchaser { set; get;}
 
+	public Button purchaseButton;
+	public Text purchaseStatus;
+
+	private int buyGasCount = 0;
+
 	private static IStoreController m_StoreController;
 	// The Unity Purchasing system.
 	private static IExtensionProvider m_StoreExtensionProvider;
-	// The store-specific Purchasing subsystems.
+	// The store-specific Purchasing subsystem
 
 	// Product identifiers for all products capable of being purchased:
 	// "convenience" general identifiers for use with Purchasing, and their store-specific identifier
@@ -46,6 +52,9 @@ public class Purchaser : MonoBehaviour, IStoreListener
 
 	void Start()
 	{
+		Button gasUse = purchaseButton.GetComponent<Button>();
+		gasUse.onClick.AddListener(BuyConsumable);
+
 		// If we haven't set up the Unity Purchasing reference
 		if (m_StoreController == null)
 		{
@@ -215,6 +224,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
 
 	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
 	{
+		Debug.Log ("I am the receipt : "+args.purchasedProduct.receipt);
 
 		bool validPurchase = true; // Presume valid for platforms with no R.V.
 
@@ -236,6 +246,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
 		Debug.Log(productReceipt.productID);
 		Debug.Log(productReceipt.purchaseDate);
 		Debug.Log(productReceipt.transactionID);
+
 		}
 		} catch (IAPSecurityException) {
 		Debug.Log("Invalid receipt, not unlocking content");
@@ -247,9 +258,35 @@ public class Purchaser : MonoBehaviour, IStoreListener
 			// Unlock the appropriate content here.
 		}
 
-		return PurchaseProcessingResult.Complete;
+		//return PurchaseProcessingResult.Complete;
 
 
+		///////////////////////////////////////////////////////////////////////////////////////
+		Debug.Log("lala");
+		GooglePurchaseData data = new GooglePurchaseData (args.purchasedProduct.receipt);
+		new GameSparks.Api.Requests.GooglePlayBuyGoodsRequest ()
+			.SetSignature (data.inAppDataSignature)
+			.SetSignedData (data.inAppPurchaseData)
+			.Send ((response) => {
+				if (!response.HasErrors) {
+
+					Debug.Log("I am the purchase data : "+data.inAppPurchaseData);
+					Debug.Log("I am the purchase signature : "+data.inAppDataSignature);
+
+					++buyGasCount;
+
+					purchaseStatus.text = "Success : "+buyGasCount;
+					Debug.Log("Successful purchase");
+				} else {
+
+					purchaseStatus.text = "Fail";
+					Debug.Log("Purchase error: " + response.Errors.JSON);
+				}	
+			});
+		Debug.Log("haha");
+		///////////////////////////////////////////////////////////////////////////////////////
+		/// 
+		/// 
 		Debug.Log("The receipt : "+args.purchasedProduct.receipt);
 
 

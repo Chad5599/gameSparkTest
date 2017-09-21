@@ -51,23 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AudienceNetwork\Library\AdHandler.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdManager.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdPanel.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdQuad.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdSettings.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdUtility.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\AdView.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\InterstitialAd.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\NativeAd.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\RewardedVideoAd.cs" />
-     <Compile Include="Assets\AudienceNetwork\Library\SdkVersion.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\Banner\AdViewTest.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\InGameAd\AdCamera.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\InGameAd\SimpleTouchPad.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\Interstitial\InterstitialAdTest.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\NativeAd\NativeAdTest.cs" />
-     <Compile Include="Assets\AudienceNetwork\Samples\RewardedVideo\RewardedVideoAdTest.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
@@ -100,7 +83,10 @@
      <Compile Include="Assets\GameSparks\TestUI\GameSparksTestUI.cs" />
      <Compile Include="Assets\Scripts\GameSparksManager.cs" />
      <Compile Include="Assets\Scripts\IAP\AppPurchaser.cs" />
+     <Compile Include="Assets\Scripts\IAP\GooglePurchaseData.cs" />
      <Compile Include="Assets\Scripts\IAP\Purchaser.cs" />
+     <Compile Include="Assets\Scripts\leaderboard\AddLvlManager.cs" />
+     <Compile Include="Assets\Scripts\leaderboard\leaderboardManager.cs" />
      <Compile Include="Assets\Scripts\playerData\MovePlayer.cs" />
      <Compile Include="Assets\Scripts\playerData\Multiplayer.cs" />
      <Compile Include="Assets\Scripts\playerData\SavePlayer.cs" />
@@ -112,8 +98,6 @@
      <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
      <None Include="Assets\FacebookSDK\link.xml" />
      <None Include="Assets\GameSparks\link.xml" />
-     <None Include="Assets\AudienceNetwork\Audience Network README.txt" />
-     <None Include="Assets\AudienceNetwork\Editor\Android\DefaultAndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -169,29 +153,29 @@
  <Reference Include="UnityStore">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityChannel/UnityStore.dll</HintPath>
  </Reference>
+ <Reference Include="Editor">
+ <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Purchasing.Common">
+ <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Purchasing.Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
  <Reference Include="FacebookStore">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Facebook/FacebookStore.dll</HintPath>
  </Reference>
  <Reference Include="Security">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Security/live/Security.dll</HintPath>
  </Reference>
- <Reference Include="Purchasing.Common">
- <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Purchasing.Common.dll</HintPath>
- </Reference>
- <Reference Include="Apple">
- <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
- </Reference>
  <Reference Include="Tizen">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
  </Reference>
  <Reference Include="winrt">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
- </Reference>
- <Reference Include="Editor">
- <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +190,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ProjectExtensions xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><MonoDevelop><Properties><Policies><DotNetNamingPolicy DirectoryNamespaceAssociation="None" ResourceNamePolicy="FileFormatDefault" /><TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" /><CSharpFormattingPolicy IndentSwitchBody="True" PropertyBraceStyle="NextLine" PropertyGetBraceStyle="NextLine" PropertySetBraceStyle="NextLine" EventBraceStyle="NextLine" EventAddBraceStyle="NextLine" EventRemoveBraceStyle="NextLine" StatementBraceStyle="NextLine" ElseNewLinePlacement="NewLine" CatchNewLinePlacement="NewLine" FinallyNewLinePlacement="NewLine" BeforeMethodDeclarationParentheses="False" BeforeMethodCallParentheses="False" BeforeConstructorDeclarationParentheses="False" BeforeIndexerDeclarationBracket="False" BeforeDelegateDeclarationParentheses="False" AfterDelegateDeclarationParameterComma="True" NewParentheses="False" SpacesBeforeBrackets="False" inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" /><TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain" /><TextStylePolicy inheritsSet="null" scope="text/x-unitytxt" /><TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="application/xml" /><XmlFormattingPolicy inheritsSet="Mono" inheritsScope="application/xml" scope="application/xml" /><StandardHeader Text="" IncludeInNewFiles="True" /><NameConventionPolicy><Rules><NamingRule Name="Namespaces" AffectedEntity="Namespace" VisibilityMask="VisibilityMask" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Types" AffectedEntity="Class, Struct, Enum, Delegate" VisibilityMask="Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Interfaces" AffectedEntity="Interface" VisibilityMask="Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True"><RequiredPrefixes><String>I</String></RequiredPrefixes></NamingRule><NamingRule Name="Attributes" AffectedEntity="CustomAttributes" VisibilityMask="Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True"><RequiredSuffixes><String>Attribute</String></RequiredSuffixes></NamingRule><NamingRule Name="Event Arguments" AffectedEntity="CustomEventArgs" VisibilityMask="Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True"><RequiredSuffixes><String>EventArgs</String></RequiredSuffixes></NamingRule><NamingRule Name="Exceptions" AffectedEntity="CustomExceptions" VisibilityMask="VisibilityMask" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True"><RequiredSuffixes><String>Exception</String></RequiredSuffixes></NamingRule><NamingRule Name="Methods" AffectedEntity="Methods" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Static Readonly Fields" AffectedEntity="ReadonlyField" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="False" IncludeStaticEntities="True" /><NamingRule Name="Fields" AffectedEntity="Field" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="ReadOnly Fields" AffectedEntity="ReadonlyField" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="False" /><NamingRule Name="Constant Fields" AffectedEntity="ConstantField" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Properties" AffectedEntity="Property" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Events" AffectedEntity="Event" VisibilityMask="Protected, Public" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Enum Members" AffectedEntity="EnumMember" VisibilityMask="VisibilityMask" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Parameters" AffectedEntity="Parameter" VisibilityMask="VisibilityMask" NamingStyle="CamelCase" IncludeInstanceMembers="True" IncludeStaticEntities="True" /><NamingRule Name="Type Parameters" AffectedEntity="TypeParameter" VisibilityMask="VisibilityMask" NamingStyle="PascalCase" IncludeInstanceMembers="True" IncludeStaticEntities="True"><RequiredPrefixes><String>T</String></RequiredPrefixes></NamingRule></Rules></NameConventionPolicy><VersionControlPolicy inheritsSet="Mono" /></Policies></Properties></MonoDevelop></ProjectExtensions>
-
+  
 </Project>

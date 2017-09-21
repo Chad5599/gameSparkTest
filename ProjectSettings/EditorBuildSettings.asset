@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AppPurchase.unity
     guid: 24679170233614034b2b7572b0191f37
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 23aa97bd2a13d4ae9a0b500eb205938e
