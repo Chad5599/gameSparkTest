@@ -20,3 +20,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leaderboard.unity
     guid: 23aa97bd2a13d4ae9a0b500eb205938e
+  - enabled: 1
+    path: Assets/Scenes/LeagueAndDivision.unity
+    guid: f66dfceeaa0e449cca35f5b916bb1f50
+  - enabled: 1
+    path: Assets/Scenes/FacebookFriend.unity
+    guid: 813c78ddffc5c42489891e6be030351a
+  - enabled: 1
+    path: Assets/Scenes/CustomFriends.unity
+    guid: ae13ba2b7023148e1a8fa69e7528e0aa
+  - enabled: 1
+    path: Assets/Scenes/FriendsDetail.unity
+    guid: 2d40b2ae88c384363917753e55002af9

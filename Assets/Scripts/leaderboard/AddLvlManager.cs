@@ -18,7 +18,22 @@ public class AddLvlManager : MonoBehaviour {
 	void Awake()
 	{
 		Button btn = addLvlButton.GetComponent<Button>();
-		btn.onClick.AddListener(AddLvlCountry);
+		btn.onClick.AddListener(AddLvlTeam);
+	}
+
+	public void AddLvlTeam()
+	{
+		lvl = Convert.ToInt32 (addLvlInput.text);
+
+		new LogEventRequest ().SetEventKey ("EV_LVL_TEAM")
+			.SetEventAttribute ("ATT_LVL_TEAM", lvl)
+			.Send ((response) => {
+				if (!response.HasErrors) {
+					Debug.Log ("lvl added"+lvl);
+				} else {
+					Debug.Log ("error lvl adding");
+				}
+			});
 	}
 
 	public void AddLvl()
@@ -29,7 +44,7 @@ public class AddLvlManager : MonoBehaviour {
 				.SetEventAttribute ("AT_XP_LB_GL", lvl)
 				.Send ((response) => {
 			if (!response.HasErrors) {
-				Debug.Log ("lvl added");
+				Debug.Log ("lvl added"+lvl);
 			} else {
 				Debug.Log ("error lvl adding");
 			}

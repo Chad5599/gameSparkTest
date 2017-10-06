@@ -5,6 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - gold
+  - profilePic
+  - profileName
+  - canvas
+  - friendCanvas
+  - friendText
+  - loginText
+  - frontLayer
+  - grid1
+  - gridText
+  - parentContent
+  - grid1Prefab
+  - friendTextPrefab
+  - friendAcceptButton
+  - friendDeclineButton
   layers:
   - Default
   - TransparentFX
@@ -14,7 +28,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - frontLayer
   - 
   - 
   - 
@@ -39,6 +53,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 2731912803
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: frontLayer
+    uniqueID: 1732385343
     locked: 0
