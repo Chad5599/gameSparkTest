@@ -43,6 +43,7 @@ public class GoogleLogin : MonoBehaviour
 		//Initialize Google Play
 		PlayGamesPlatform.Activate ();
 
+		Debug.Log ("Done with google play initalization");
 	}
 
 
@@ -61,6 +62,8 @@ public class GoogleLogin : MonoBehaviour
 
 		if (Social.localUser.authenticated) {
 			log.text = "social authenticated";
+		} else {
+			log.text = "social not authenticated yet";
 		}
 
 	
@@ -112,6 +115,11 @@ public class GoogleLogin : MonoBehaviour
 	public void GooglePlayAuthentication() {
 
 		log.text = "auth gamesparks";
+
+		authCodeText.text = authCode;
+
+		Debug.Log ("The google play username: "+userName);
+		Debug.Log ("The google play auth: "+authCode);
 
 		if(PlayGamesPlatform.Instance.IsAuthenticated()) {
 

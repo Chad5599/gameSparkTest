@@ -128,7 +128,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.DialogShare
 50667894c33b478dc38ae949114bb1e8 Assembly-CSharp-firstpass.dll:AppStoresSupport.AppStoreSettings
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameSparksManager
-8d81270c14702457418d4f0287ac2692 Assembly-CSharp.dll:.Multiplayer
+824ecac812819b6d7760f90fd8fd2783 Assembly-CSharp.dll:.Multiplayer
 2d07cf0a2e2e8c19f417a62136676c23 Assembly-CSharp.dll:.SavePlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.GraphRequest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.LogView
@@ -186,6 +186,7 @@ e7cc82fe8897044aa37890c5eb3bfb9f Assembly-CSharp.dll:.GameSparksUnity
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Purchasing.dll:UnityEngine.Purchasing.AsyncUtil
 cfab51da8519ce43cd6e8970c95be8a8 Assembly-CSharp.dll:.FacebookManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GooglePlayGames.OurUtils.PlayGamesHelperObject
+024ccac1f1d487d84917f67f53184310 Assembly-CSharp.dll:FlyingWormConsole3.ConsoleProRemoteServer
 b9490201d5d30b60ea936ce67bc3f35f Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 c82b4f672e2c88fcc54d5131943c7bb1 Assembly-CSharp.dll:.GameSparksSettings
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppRequests

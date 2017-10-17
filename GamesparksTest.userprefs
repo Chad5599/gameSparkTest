@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FriendDetailManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerData/Multiplayer.cs">
     <Files>
-      <File FileName="Assets/Scripts/CustomFriendManager.cs" Line="39" Column="2" />
-      <File FileName="Assets/Scripts/Registration/RegisterPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets/FriendDetailManager.cs" Line="341" Column="39" />
+      <File FileName="Assets/Scripts/playerData/Multiplayer.cs" Line="50" Column="29" />
+      <File FileName="Assets/Scripts/friend/CustomFriendManager.cs" Line="104" Column="27" />
+      <File FileName="Assets/GooglePlayGames/Platforms/Android/Gms/Games/Stats/LoadPlayerStatsResultObject.cs" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

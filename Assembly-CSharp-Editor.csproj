@@ -151,6 +151,9 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="ConsolePro.Editor">
+ <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Facebook.Unity">
  <HintPath>/Users/irtaza.mumtaz/Desktop/data/projects/GamesparksTest/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
  </Reference>

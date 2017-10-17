@@ -51,6 +51,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ConsolePro\ConsoleProDebug.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\FastBitConverter.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\INetEventListener.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NatPunchModule.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetConstants.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataReader.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataWriter.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDebug.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetEndPoint.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetManager.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacket.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacketPool.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeerCollection.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSerializer.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSocket.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetThread.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetUtils.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NtpSyncModule.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\ReliableChannel.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SequencedChannel.cs" />
+     <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
@@ -63,7 +86,6 @@
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
      <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
-     <Compile Include="Assets\FriendDetailManager.cs" />
      <Compile Include="Assets\GameSparks\GameSparksRTUnity.cs" />
      <Compile Include="Assets\GameSparks\GameSparksSettings.cs" />
      <Compile Include="Assets\GameSparks\GameSparksUnity.cs" />
@@ -276,9 +298,10 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
      <Compile Include="Assets\GPGSIds.cs" />
-     <Compile Include="Assets\Scripts\CustomFriendManager.cs" />
-     <Compile Include="Assets\Scripts\FacebookManager.cs" />
-     <Compile Include="Assets\Scripts\FriendManager.cs" />
+     <Compile Include="Assets\Scripts\facebook\FacebookManager.cs" />
+     <Compile Include="Assets\Scripts\friend\CustomFriendManager.cs" />
+     <Compile Include="Assets\Scripts\friend\FriendDetailManager.cs" />
+     <Compile Include="Assets\Scripts\friend\FriendManager.cs" />
      <Compile Include="Assets\Scripts\GameSparksManager.cs" />
      <Compile Include="Assets\Scripts\GoogleLogin.cs" />
      <Compile Include="Assets\Scripts\IAP\AppPurchaser.cs" />

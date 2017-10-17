@@ -98,14 +98,14 @@ public class RegisterPlayer : MonoBehaviour
 	public void GameSceneButton()
 	{
 		if (authoriseFlag || true) {
-			//SceneManager.LoadScene("multiPlayerScene");
+			SceneManager.LoadScene("multiPlayerScene");
 			//SceneManager.LoadScene ("MainGameScene");
 			//SceneManager.LoadScene ("AppPurchase");
 			//SceneManager.LoadScene("Leaderboard");
 			//SceneManager.LoadScene ("LeagueAndDivision");
 			//SceneManager.LoadScene ("FacebookFriend");
 			//SceneManager.LoadScene ("CustomFriends");
-			SceneManager.LoadScene ("FriendsDetail");
+			//SceneManager.LoadScene ("FriendsDetail");
 		}
 		else 
 		{
